@@ -1,0 +1,73 @@
+
+
+package 四则运算;import java.util.Scanner;public class Test 
+{    
+    public static void main(String[] args) 
+    {
+        LIANX lianx=new LIANX();
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("请输入想要定制的题的数量：");
+        int k=scanner.nextInt();
+        for(int i=0;i<k;i++)
+        {
+            int suiji1=1+(int)(Math.random()*100);  
+            int suiji2=1+(int)(Math.random()*100);  
+            int suanfu=1+(int)(Math.random()*4);
+            if(suanfu==1)//加法                            {
+                int fangshi=(int)(Math.random()*4);
+                String a=lianx.fenshu();
+                String b=lianx.fenshu();
+                if (fangshi==1)   {   System.out.println(suiji1+"+"+suiji2+"=");  }//整数相加
+                else if (fangshi==2)   {   System.out.println(a+"+"+b+"=");}//真分数相加
+                else if (fangshi==3)   {   System.out.println(a+"+"+suiji2+"="); }//整数与真分数相加            }
+            
+            if(suanfu==2)//减法            {    
+                int fangshi1=1+(int)(Math.random()*3);
+                String a=lianx.fenshu();
+                String b=lianx.fenshu();
+                if (fangshi1==1)  { System.out.println(suiji1+"-"+suiji2+"=");}//整数相减
+                else if (fangshi1==2)  { System.out.println(a+"-"+b+"=");}//真分数相减
+                else if (fangshi1==3)  { System.out.println(a+"-"+suiji1+"="); }//整数减真分数                        }
+            
+            if(suanfu==3)//乘法            {
+                int fangshi2=1+(int)(Math.random()*3);
+                String a=lianx.fenshu();
+                String b=lianx.fenshu();
+                if (fangshi2==1) { System.out.println(suiji1+"*"+suiji2+"=");}
+                else if (fangshi2==2) { System.out.println(a+"*"+b+"=");          }
+                else if (fangshi2==3) { System.out.println(suiji1+"*"+b+"=");          }
+            }
+                    
+            if(suanfu==4)//除法            {   
+              int fangshi3=1+(int)(Math.random()*2); 
+              String a=lianx.fenshu();
+              String b=lianx.fenshu();
+              if (fangshi3==1) 
+              { 
+                  if(suiji1<=suiji2)    {  System.out.println(suiji1+"/"+suiji2+"="); }
+                  if(suiji1>suiji2)    {  System.out.println(suiji2+"/"+suiji1+"="); }
+              }
+              else if (fangshi3==2) {  System.out.println(a+"/"+b+"=");           }      
+            }
+            
+        }
+    }
+
+}class  LIANX//生成真分数函数{ 
+   public  String fenshu()//真分数   {
+    int i=1+(int)(Math.random()*10);
+    int j=1+(int)(Math.random()*10);
+    if(i>=j)
+    {
+        int temp=i;
+        i=j;
+        j=temp;
+    }
+    return("("+i+"/"+j+")");
+    }    
+}
+
+3.运行结果截图：
+
+
+4.上课未完成原因：首先我上课时只完成了整数的加减乘除运算，未包含真分数情况，没有按时完成是因为没有及时的实现（1）需要验证结果的正确性（2）题目避免重复这两个要求
